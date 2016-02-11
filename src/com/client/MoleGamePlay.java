@@ -16,9 +16,6 @@ public class MoleGamePlay extends JPanel {
     Image image,cursorImage;
     Cursor cursor;
 
-    int i;
-    int hammerX,hammerY;
-
     public MoleGamePlay(){
         jTextPane=new JTextPane();
         jTextPane.setEditable(false);
@@ -70,10 +67,10 @@ public class MoleGamePlay extends JPanel {
     }
 
     @Override
-    public void paintComponents(Graphics g) {
+    protected void paintComponent(Graphics g) {
         g.drawImage(image,0,0,getWidth(),getHeight(),this);
-        }
-        }
+    }
+}
 
 
 
