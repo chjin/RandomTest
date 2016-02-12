@@ -41,7 +41,11 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     JLabel jLabel;
     int hammerX,hammerY;
 
+    //게임 시간 체크용도
     Timer timer=new Timer(10,null);
+
+    //MoleGameView 스레드를 실행(run())하기 위한 용도로 스레드 추가
+    Thread thread;
 
     public MoleGameView(){
         this.addMouseMotionListener(this);

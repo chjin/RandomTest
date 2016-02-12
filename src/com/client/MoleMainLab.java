@@ -43,7 +43,9 @@ public class MoleMainLab extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //MoleGameView의 스타트 버튼 이벤트처리
         if(e.getSource()==moleGamePlay.jButtonStn){
-
+            moleGameView.thread=new Thread(moleGameView);
+            moleGameView.thread.start();
+            moleGameView.timer.start();
         }
     }
 }
