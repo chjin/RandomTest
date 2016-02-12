@@ -23,7 +23,7 @@ public class MoleGamePlay extends JPanel {
         jTextPane.setText("0");
         jTextPane.setFont(new Font("Pompadour",50,50));
 
-        jLabel=new JLabel(new ImageIcon(".\\img\\score.png"));
+        jLabel=new JLabel(new ImageIcon(".\\img\\score.jpg"));
         jLabel.setBounds(620,130,200,50);
 
         jButtonStn=new JButton(new ImageIcon(".\\img\\btn_gameStart.jpg"));
