@@ -15,7 +15,7 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     Rectangle[] rectangles=new Rectangle[9];
     Image[] moles=new Image[5];
     Image[] numbers=new Image[11];
-    Image image1,image2;
+    Image groundImage,hammerImage;
 
     String[] stringsImage={
         ".\\img\\mole1.png",".\\img\\mole2.png",
@@ -29,13 +29,13 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         ".\\img\\4.png",".\\img\\5.png",
         ".\\img\\6.png",".\\img\\7.png",
         ".\\img\\8.png",".\\img\\9.png",
-        ".\\img\\10.png"
+        ".\\img\\10.png",
     };
 
     int left,top,width,height;
     int stringsNumber2=0;
     int count=0;
-    int memberTimer=600;
+    int timerVar=600;
 
     JLabel jLabel;
     int hammerX,hammerY;
@@ -45,8 +45,8 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     public MoleGameView(){
         this.addMouseMotionListener(this);
 
-        image1=Toolkit.getDefaultToolkit().getImage(".\\img\\ground.png");
-        image2=Toolkit.getDefaultToolkit().getImage(".\\img\\starhammericon.png");
+        groundImage=Toolkit.getDefaultToolkit().getImage(".\\img\\ground.png");
+        hammerImage=Toolkit.getDefaultToolkit().getImage(".\\img\\starhammericon.png");
 
         for(int i=0;i<8;i++){
             rectangles[i]=new Rectangle();
@@ -79,8 +79,11 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        g.drawImage(image1,0,0,getWidth(),getHeight(),this);
+    public void paint(Graphics g) {
+        notiBar.jProgressBar.setValue(timerVar);
+        notiBar.jProgressBar.setString(timerVar+" ");
+        notiBar.jProgressBar.setStringPainted(false);
+        g.drawImage(groundImage,0,0,560,370,this);
     }
 
     @Override
