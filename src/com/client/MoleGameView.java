@@ -13,9 +13,9 @@ import java.util.*;
 public class MoleGameView extends JPanel implements Runnable, MouseMotionListener{
     NotiBar notiBar=new NotiBar();
     Rectangle[] rectangles=new Rectangle[9];
-    Image[] images=new Image[5];
-    Image[] images2=new Image[11];
-    Image image1,image2,image3,image4;
+    Image[] moles=new Image[5];
+    Image[] numbers=new Image[11];
+    Image image1,image2;
 
     String[] stringsImage={
         ".\\img\\mole1.png",".\\img\\mole2.png",
@@ -23,7 +23,7 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         ""
     };
 
-    String[] stringsNumber1={
+    String[] stringsNumber={
         ".\\img\\0.png",".\\img\\1.png",
         ".\\img\\2.png",".\\img\\3.png",
         ".\\img\\4.png",".\\img\\5.png",
@@ -45,8 +45,8 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     public MoleGameView(){
         this.addMouseMotionListener(this);
 
-        image2=Toolkit.getDefaultToolkit().getImage(".\\img\\ground.png");
-        image3=Toolkit.getDefaultToolkit().getImage(".\\img\\starhammericon.png");
+        image1=Toolkit.getDefaultToolkit().getImage(".\\img\\ground.png");
+        image2=Toolkit.getDefaultToolkit().getImage(".\\img\\starhammericon.png");
 
         for(int i=0;i<8;i++){
             rectangles[i]=new Rectangle();
@@ -68,20 +68,20 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         this.add(jLabel);
 
         for(int i=0;i<5;i++){
-            images[i]=Toolkit.getDefaultToolkit().getImage(stringsImage[i]);
+            moles[i]=Toolkit.getDefaultToolkit().getImage(stringsImage[i]);
         }
 
         for(int j=0;j<11;j++){
-            images2[j]=Toolkit.getDefaultToolkit().getImage(stringsNumber1[j]);
+            numbers[j]=Toolkit.getDefaultToolkit().getImage(stringsNumber[j]);
         }
-
-
-
 
 
     }
 
-
+    @Override
+    protected void paintComponent(Graphics g) {
+        g.drawImage(image1,0,0,getWidth(),getHeight(),this);
+    }
 
     @Override
     public void mouseDragged(MouseEvent e) {
