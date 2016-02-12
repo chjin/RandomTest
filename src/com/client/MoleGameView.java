@@ -11,6 +11,7 @@ import java.util.*;
  * Created by sist on 2016-02-11.
  */
 public class MoleGameView extends JPanel implements Runnable, MouseMotionListener{
+
     NotiBar notiBar=new NotiBar();
     Rectangle[] rectangles=new Rectangle[9];
     Image[] moles=new Image[5];
@@ -96,6 +97,7 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
 
     }
 
+    //두더지 나왔다 들어갔다하는 부분 스레드로 구현.
     @Override
     public void run() {
 
