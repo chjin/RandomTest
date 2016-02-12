@@ -3,11 +3,13 @@ package com.client;
 import javax.smartcardio.CardChannel;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by sist on 2016-02-11.
  */
-public class MoleMainLab extends JFrame {
+public class MoleMainLab extends JFrame implements ActionListener{
     CardLayout cardLayout=new CardLayout();
     MoleGamePlay moleGamePlay=new MoleGamePlay();
 
@@ -26,6 +28,11 @@ public class MoleMainLab extends JFrame {
 
     public static void main(String[] args){
         new MoleMainLab();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
 
