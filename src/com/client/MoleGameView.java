@@ -64,14 +64,14 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         }
 
         //두더지 위치 설정.
-        rectangles[0].setRect(186,21,266,101);
-        rectangles[1].setRect(406,4,486,84);
-        rectangles[2].setRect(66,108,146,188);
-        rectangles[3].setRect(335,94,415,174);
-        rectangles[4].setRect(174,172,254,252);
-        rectangles[5].setRect(454,177,534,257);
-        rectangles[6].setRect(60,250,140,330);
-        rectangles[7].setRect(320,255,400,335);
+        rectangles[0].setRect(76,76,196,156);
+        rectangles[1].setRect(199,119,179,199);
+        rectangles[2].setRect(336,100,416,180);
+        rectangles[3].setRect(64,178,144,258);
+        rectangles[4].setRect(219,203,299,283);
+        rectangles[5].setRect(368,163,448,243);
+        rectangles[6].setRect(136,279,216,359);
+        rectangles[7].setRect(352,250,432,330);
 
         jLabel=new JLabel();
         jLabel.setBounds(20,20,100,50);
@@ -123,8 +123,24 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
     public void run() {
         try{
             while(true){
-                setImage();
+                setImage();             //콤보 이미지, 큰 망치 이미지 출력
+                if(timerVar>2000)
+                    Thread.sleep(600);
+                else if(timerVar>800)
+                    Thread.sleep(500);
+                else
+                    Thread.sleep(450);
 
+                if(c_combo>0){
+                    if(m_combo !=c_combo){
+                        m_combo=0;
+                        c_combo=0;
+                    }
+                }
+
+                if(c_combo==3 && timerVar>500){
+                    c_combo=0;
+                }
 
             }
         }catch(Exception e){
@@ -136,10 +152,10 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         //랜덤 두더지 이미지
         int no=(int)(Math.random()*3);
         moleImage=molesImage[no];
+
         if(moleImage==molesImage[0] || moleImage==molesImage[1]){
             c_combo++;
         }
-
         //랜덤 이미지 위치
         int i=(int)(Math.random()*8);
         left=rectangles[i].getLeft();
