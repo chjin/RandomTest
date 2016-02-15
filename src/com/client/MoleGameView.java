@@ -5,6 +5,7 @@ import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -95,18 +96,26 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         notiBar.jProgressBar.setStringPainted(false);
         g.drawImage(groundImage,0,0,560,370,this);
         g.drawImage(moleImage,left,top,width,height,this);
-        g.drawImage(hammerImage,hammerX-35,hammerX-35,70,70,this);
+        g.drawImage(hammerImage,hammerX-35,hammerY-35,70,70,this);
         g.drawImage(comboImage,30,10,60,60,this);
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        this.setCursor(this.getToolkit().createCustomCursor(
+                new BufferedImage(3,3,BufferedImage.TYPE_INT_ARGB),new Point(0,0),"null"));
+        hammerX=e.getX();
+        hammerY=e.getY();
+        repaint();
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-
+        this.setCursor(this.getToolkit().createCustomCursor(
+                new BufferedImage(3,3,BufferedImage.TYPE_INT_ARGB),new Point(0,0),"null"));
+        hammerX=e.getX();
+        hammerY=e.getY();
+        repaint();
     }
 
     //두더지 나왔다 들어갔다하는 부분 스레드로 구현.
