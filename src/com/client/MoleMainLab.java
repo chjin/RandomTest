@@ -5,11 +5,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * Created by sist on 2016-02-11.
  */
-public class MoleMainLab extends JFrame implements ActionListener{
+public class MoleMainLab extends JFrame implements ActionListener, Runnable, MouseListener{
     CardLayout cardLayout=new CardLayout();
     MoleGamePlay moleGamePlay=new MoleGamePlay();
     MoleGameView moleGameView=moleGamePlay.moleGameView;
@@ -24,6 +26,11 @@ public class MoleMainLab extends JFrame implements ActionListener{
         moleGamePlay.jButtonStn.addActionListener(this);
         moleGamePlay.jButtonPause.addActionListener(this);
         moleGamePlay.jButtonExit.addActionListener(this);
+
+        //Add Listener 2.18
+        moleGameView.addMouseListener(this);
+        moleGameView.timer.addActionListener(this);
+
 
 
         this.setSize(850,650);
@@ -45,8 +52,41 @@ public class MoleMainLab extends JFrame implements ActionListener{
         if(e.getSource()==moleGamePlay.jButtonStn){
             moleGameView.thread=new Thread(moleGameView);
             moleGameView.thread.start();
-            moleGameView.timer.start();
+            moleGameView.timer.start();     //시간 제한 적용 구현중....
+            moleGamePlay.jButtonStn.setEnabled(false);
+            moleGamePlay.jButtonPause.setEnabled(true);
+            moleGamePlay.jButtonExit.setEnabled(false);
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void run() {
+
     }
 }
 
