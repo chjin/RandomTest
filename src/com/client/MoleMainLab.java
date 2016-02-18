@@ -66,6 +66,9 @@ public class MoleMainLab extends JFrame implements ActionListener, Runnable, Mou
 
     @Override
     public void mousePressed(MouseEvent e) {
+        //게임뷰moleGameView에서 두더지 hit시에.
+        System.out.println("mole hit!");
+
 
     }
 
