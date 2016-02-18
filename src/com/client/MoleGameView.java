@@ -64,7 +64,7 @@ public class MoleGameView extends JPanel implements Runnable, MouseMotionListene
         }
 
         //두더지 위치 설정.
-        rectangles[0].setRect(76,76,196,156);
+        rectangles[0].setRect(76,76,156,156);
         rectangles[1].setRect(199,119,179,199);
         rectangles[2].setRect(336,100,416,180);
         rectangles[3].setRect(64,178,144,258);
