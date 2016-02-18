@@ -69,6 +69,33 @@ public class MoleMainLab extends JFrame implements ActionListener, Runnable, Mou
         //게임뷰moleGameView에서 두더지 hit시에.
         System.out.println("mole hit!");
 
+        int x,y;
+        x=e.getX();
+        y=e.getY();
+
+        //ground이미지 내에서 마우스 이벤트 발생하는 경우임
+        if(y>=moleGameView.top && y<=(moleGameView.height+moleGameView.top)){
+            if(x>=moleGameView.left && x<=(moleGameView.left+moleGameView.width)){
+                //mole1.png 클릭시임.
+                if(moleGameView.moleImage==moleGameView.molesImage[0]){
+                    //mole1.png가 mole3.png로 바뀜.
+                    moleGameView.moleImage=moleGameView.molesImage[2];
+                    moleGameView.repaint();
+
+                    //mole3.png 클릭시임.`
+                } else if(moleGameView.moleImage==moleGameView.molesImage[1]){
+                    //mole2.png가 mole4.png로 바뀜.
+                    moleGameView.moleImage=moleGameView.molesImage[3];
+                    moleGameView.repaint();
+                }
+
+
+            }
+        }
+
+
+
+
 
     }
 
